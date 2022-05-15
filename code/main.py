@@ -6,7 +6,7 @@ from world import World
 class Game:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((width, height), pygame.SCALED) # if fullscreen : self.screen = pygame.display.set_mode((width, height), pygame.SCALED | pygame.FULLSCREEN)
+        self.screen = pygame.display.set_mode((width, height), pygame.SCALED)
         pygame.display.set_caption('Pygame setup')
         self.clock = pygame.time.Clock()
         self.world = World()
@@ -26,6 +26,8 @@ class Game:
                     if event.key == pygame.K_ESCAPE:
                         pygame.quit()
                         sys.exit()
+                    if event.key == pygame.K_F11:
+                        pygame.display.toggle_fullscreen()
 
             self.screen.fill('black')
             self.world.run(dt)
